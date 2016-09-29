@@ -66,6 +66,7 @@ def verificar_ganhador():
     if matriz[0][0] == 'X' and matriz[1][0] == 'X' and matriz[2][0]=='X':
         print("Temos um vencendor")
         ganhador=1
+        
     if matriz[0][0] == 'O' and matriz[1][0] == 'O' and matriz[2][0]=='O':
         print("Temos um vencendor")
         ganhador=2
@@ -73,9 +74,43 @@ def verificar_ganhador():
     if matriz[0][0] == 'X' and matriz[1][1] == 'X' and matriz[2][2]=='X':
         print("Temos um vencendor")
         ganhador=1
+        
     if matriz[0][0] == 'O' and matriz[1][1] == 'O' and matriz[2][2]=='O':
         print("Temos um vencendor")
         ganhador=2
+    
+    
+    if matriz[1][0]== 'X' and matriz[1][1] == 'X' and matriz[1][2] == 'X':
+        print("temos um vencedor")
+        ganhador = 1
+
+    if matriz[1][0]== 'O' and matriz[1][1] == 'O' and matriz[1][2] == 'O':
+        print("temos um vencedor")
+        ganhador = 2     
+
+    if matriz[2][0]== 'X' and matriz[2][1] == 'X' and matriz[2][2] == 'X':
+        print("temos um vencedor")
+        ganhador = 1
+
+    if matriz[2][0]== 'O' and matriz[2][1] == 'O' and matriz[2][2] == 'O':
+        print("temos um vencedor")
+        ganhador = 2
+
+    if matriz[2][0]== 'X' and matriz[1][1] == 'X' and matriz[0][2] == 'X':
+        print("temos um vencedor")
+        ganhador = 1
+        
+    if matriz[2][0]== 'O' and matriz[1][1] == 'O' and matriz[0][2] == 'O':
+        print("temos um vencedor")
+        ganhador = 2
+
+    if matriz[0][1]== 'X' and matriz[1][1] == 'X' and matriz[2][1] == 'X':
+        print("temos um vencedor")
+        ganhador = 1
+        
+    if matriz[0][1]== 'O' and matriz[1][1] == 'O' and matriz[2][1] == 'O':
+        print("temos um vencedor")
+        ganhador = 2
     
     
 
