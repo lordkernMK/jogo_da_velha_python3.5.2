@@ -50,18 +50,25 @@ def jogadas_humana():
     
 #define as jogadas da IA
 def jogadas_ia():
- contador = 1
- print ("Jogada Inteligencia Artificial = ")
-     if contador == 1:  
+    
+    if contador == 1:
+        
          if (matriz [0][0] == "X" or matriz [2][0] == "X" or matriz [0][2] == "X"  or matriz [2][2] == "X"):
-             matriz[1][1] = "O"
-             contador = contador + 1
-         if (matriz [1][1] == "X"):
-             matriz[2][0] = "O"
-             contador = contador + 1
-         if (matriz [0][1] == "X" or matriz [2][1] == "X" or matriz [1][2] == "X"  or matriz [1][0] == "X"):
-             matriz[0][0] = "O"
-             contador = contador + 1
+             if matriz [1][1] == ' ':
+                matriz[1][1] = "O"
+             
+         elif (matriz [1][1] == "X"):
+             if matriz [2][0] == ' ':
+                 matriz[2][0] = "O"
+             
+         elif (matriz [0][1] == "X" or matriz [2][1] == "X" or matriz [1][2] == "X"  or matriz [1][0] == "X"):
+             if matriz [0][0] == ' ':
+                 matriz[0][0] = "O"       
+             
+    elif contador == 2:
+        print("11")
+     
+        
             
 #verifica se alguem ganhou
 def verificar_ganhador():
@@ -69,75 +76,77 @@ def verificar_ganhador():
     if matriz[0][0] == 'X' and matriz[0][1] == 'X' and matriz[0][2]=='X':
         print("Temos um vencendor")
         ganhador=1
-    if matriz[0][0] == 'O' and matriz[0][1] == 'O' and matriz[0][2]=='O':
+    elif matriz[0][0] == 'O' and matriz[0][1] == 'O' and matriz[0][2]=='O':
         print("Temos um vencendor")
         ganhador=2
 
-    if matriz[0][0] == 'X' and matriz[1][0] == 'X' and matriz[2][0]=='X':
+    elif matriz[0][0] == 'X' and matriz[1][0] == 'X' and matriz[2][0]=='X':
         print("Temos um vencendor")
         ganhador=1
         
-    if matriz[0][0] == 'O' and matriz[1][0] == 'O' and matriz[2][0]=='O':
+    elif matriz[0][0] == 'O' and matriz[1][0] == 'O' and matriz[2][0]=='O':
         print("Temos um vencendor")
         ganhador=2
 
-    if matriz[0][0] == 'X' and matriz[1][1] == 'X' and matriz[2][2]=='X':
+    elif matriz[0][0] == 'X' and matriz[1][1] == 'X' and matriz[2][2]=='X':
         print("Temos um vencendor")
         ganhador=1
         
-    if matriz[0][0] == 'O' and matriz[1][1] == 'O' and matriz[2][2]=='O':
+    elif matriz[0][0] == 'O' and matriz[1][1] == 'O' and matriz[2][2]=='O':
         print("Temos um vencendor")
         ganhador=2
     
-    
-    if matriz[1][0]== 'X' and matriz[1][1] == 'X' and matriz[1][2] == 'X':
+    elif matriz[1][0]== 'X' and matriz[1][1] == 'X' and matriz[1][2] == 'X':
         print("temos um vencedor")
         ganhador = 1
 
-    if matriz[1][0]== 'O' and matriz[1][1] == 'O' and matriz[1][2] == 'O':
+    elif matriz[1][0]== 'O' and matriz[1][1] == 'O' and matriz[1][2] == 'O':
         print("temos um vencedor")
         ganhador = 2     
 
-    if matriz[2][0]== 'X' and matriz[2][1] == 'X' and matriz[2][2] == 'X':
+    elif matriz[2][0]== 'X' and matriz[2][1] == 'X' and matriz[2][2] == 'X':
         print("temos um vencedor")
         ganhador = 1
 
-    if matriz[2][0]== 'O' and matriz[2][1] == 'O' and matriz[2][2] == 'O':
+    elif matriz[2][0]== 'O' and matriz[2][1] == 'O' and matriz[2][2] == 'O':
         print("temos um vencedor")
         ganhador = 2
 
-    if matriz[2][0]== 'X' and matriz[1][1] == 'X' and matriz[0][2] == 'X':
+    elif matriz[2][0]== 'X' and matriz[1][1] == 'X' and matriz[0][2] == 'X':
         print("temos um vencedor")
         ganhador = 1
         
-    if matriz[2][0]== 'O' and matriz[1][1] == 'O' and matriz[0][2] == 'O':
+    elif matriz[2][0]== 'O' and matriz[1][1] == 'O' and matriz[0][2] == 'O':
         print("temos um vencedor")
         ganhador = 2
 
-    if matriz[0][1]== 'X' and matriz[1][1] == 'X' and matriz[2][1] == 'X':
+    elif matriz[0][1]== 'X' and matriz[1][1] == 'X' and matriz[2][1] == 'X':
         print("temos um vencedor")
         ganhador = 1
         
-    if matriz[0][1]== 'O' and matriz[1][1] == 'O' and matriz[2][1] == 'O':
+    elif matriz[0][1]== 'O' and matriz[1][1] == 'O' and matriz[2][1] == 'O':
         print("temos um vencedor")
         ganhador = 2
     
     
 
 #primeiro imprime o ambiente
+ganhador = 0
 ambiente()
-ganhador=0
-verificar_ganhador()
+contador = 0
 while ganhador == 0 :
+    contador = 1
     verificar_ganhador()
     jogadas_humana()
     verificar_ganhador()
     jogadas_ia()
     verificar_ganhador()
-    os.system("cls")
-    if ganhador == 1:
+    contador += 1
+    if contador == 5 or ganhador != 0:
+        print(ganhador)
         break
     else:
+        os.system("cls")
         ambiente()
         
     
