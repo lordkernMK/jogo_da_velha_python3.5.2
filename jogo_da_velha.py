@@ -50,9 +50,19 @@ def jogadas_humana():
     
 #define as jogadas da IA
 def jogadas_ia():
-    
-     print ("Jogada Inteligencia Artificial = ")
-     
+ contador = 1
+ print ("Jogada Inteligencia Artificial = ")
+     if contador == 1:  
+         if (matriz [0][0] == "X" or matriz [2][0] == "X" or matriz [0][2] == "X"  or matriz [2][2] == "X"):
+             matriz[1][1] = "O"
+             contador = contador + 1
+         if (matriz [1][1] == "X"):
+             matriz[2][0] = "O"
+             contador = contador + 1
+         if (matriz [0][1] == "X" or matriz [2][1] == "X" or matriz [1][2] == "X"  or matriz [1][0] == "X"):
+             matriz[0][0] = "O"
+             contador = contador + 1
+            
 #verifica se alguem ganhou
 def verificar_ganhador():
     
