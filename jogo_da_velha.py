@@ -66,10 +66,17 @@ def jogadas_ia():
                  matriz[0][0] = "O"       
              
     elif contador == 2:
-        print("11")
-     
-        
-            
+
+         if (matriz [0][0] == "X" and matriz [0][1] == "X"):
+             if matriz [0][2] == ' ':
+                matriz[0][2] = "O"
+         elif (matriz [0][0] == "X" and matriz [0][2] == "X"):
+             if matriz [0][1] == ' ':
+                matriz[0][1] = "O"
+         elif (matriz [0][1] == "X" and matriz [0][2] == "X"):
+             if matriz [0][0] == ' ':
+                matriz[0][0] = "O"
+         
 #verifica se alguem ganhou
 def verificar_ganhador():
     
@@ -127,15 +134,12 @@ def verificar_ganhador():
     elif matriz[0][1]== 'O' and matriz[1][1] == 'O' and matriz[2][1] == 'O':
         print("temos um vencedor")
         ganhador = 2
-    
-    
-
+        
 #primeiro imprime o ambiente
 ganhador = 0
 ambiente()
-contador = 0
+contador = 1
 while ganhador == 0 :
-    contador = 1
     verificar_ganhador()
     jogadas_humana()
     verificar_ganhador()
