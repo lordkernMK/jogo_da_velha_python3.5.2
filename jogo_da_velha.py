@@ -19,7 +19,7 @@ def ambiente():
 #captura as jogas do player
 def jogadas_humana():
     
-    jogada_humana = int(input("Jogada Humana = "))
+    jogada_humana = int(input("Sua jogada? = "))
     if jogada_humana == 1 and matriz[0][0] == ' ':
         matriz[0][0]= 'X'
         
@@ -50,7 +50,8 @@ def jogadas_humana():
     
 #define as jogadas da IA
 def jogadas_ia():
-    
+
+    #Primeira jogada do pc 1/4
     if contador == 1:
         
          if (matriz [0][0] == "X" or matriz [2][0] == "X" or matriz [0][2] == "X"  or matriz [2][2] == "X"):
@@ -64,19 +65,91 @@ def jogadas_ia():
          elif (matriz [0][1] == "X" or matriz [2][1] == "X" or matriz [1][2] == "X"  or matriz [1][0] == "X"):
              if matriz [0][0] == ' ':
                  matriz[0][0] = "O"       
-             
+
+    #Segunda jogada do pc 2/4        
     elif contador == 2:
 
-         if (matriz [0][0] == "X" and matriz [0][1] == "X"):
+        if (matriz [0][0] == "X" and matriz [0][1] == "X"):
              if matriz [0][2] == ' ':
-                matriz[0][2] = "O"
-         elif (matriz [0][0] == "X" and matriz [0][2] == "X"):
+                 matriz[0][2] = "O"
+                
+        elif (matriz [0][0] == "X" and matriz [0][2] == "X"):
              if matriz [0][1] == ' ':
-                matriz[0][1] = "O"
-         elif (matriz [0][1] == "X" and matriz [0][2] == "X"):
+                 matriz[0][1] = "O"
+                
+        elif (matriz [0][1] == "X" and matriz [0][2] == "X"):
              if matriz [0][0] == ' ':
+                 matriz[0][0] = "O"
+
+        elif (matriz [0][0] == "X" and matriz [1][0] == "X"):
+            if matriz [2][0] == ' ':
+                matriz[2][0] = "O"
+
+        elif (matriz [0][0] == "X" and matriz [2][0] == "X"):
+            if matriz [1][0] == ' ':
+                matriz[1][0] = "O"
+                
+        elif (matriz [1][0] == "X" and matriz [2][0] == "X"):
+            if matriz [0][0] == ' ':
                 matriz[0][0] = "O"
-         
+
+        elif (matriz [0][2] == "X" and matriz [1][2] == "X"):
+            if matriz [2][2] == ' ':
+                matriz[2][2] = "O"
+
+        elif (matriz [0][2] == "X" and matriz [2][2] == "X"):
+            if matriz [1][2] == ' ':
+                matriz[1][2] = "O"
+                
+        elif (matriz [1][2] == "X" and matriz [2][2] == "X"):
+            if matriz [0][2] == ' ':
+                matriz[0][2] = "O"
+
+        elif (matriz [2][0] == "X" and matriz [2][2] == "X"):
+            if matriz [2][1] == ' ':
+                matriz[2][1] = "O"
+
+        elif (matriz [2][0] == "X" and matriz [2][1] == "X"):
+            if matriz [2][2] == ' ':
+                matriz[2][2] = "O"
+                
+        elif (matriz [2][2] == "X" and matriz [2][1] == "X"):
+            if matriz [2][0] == ' ':
+                matriz[2][0] = "O"
+                
+        elif (matriz [1][0] == "X" and matriz [1][2] == "X"):
+            if matriz [1][1] == ' ':
+                matriz[1][1] = "O"
+
+        elif (matriz [1][0] == "X" and matriz [1][1] == "X"):
+            if matriz [1][2] == ' ':
+                matriz[1][2] = "O"
+                
+        elif (matriz [1][2] == "X" and matriz [1][1] == "X"):
+            if matriz [1][0] == ' ':
+                matriz[1][0] = "O"
+
+        elif (matriz [0][1] == "X" and matriz [2][1] == "X"):
+            if matriz [1][1] == ' ':
+                matriz[1][1] = "O"
+
+        elif (matriz [2][1] == "X" and matriz [1][1] == "X"):
+            if matriz [0][1] == ' ':
+                matriz[0][1] = "O"
+                
+        elif (matriz [0][1] == "X" and matriz [1][1] == "X"):
+            if matriz [2][1] == ' ':
+                matriz[2][1] = "O"
+                
+        else:
+            if matriz[0][0] == "X" and (matriz[2][2] == "X" or matriz[2][1] == "X" or matriz[1][2] == "X"):
+                
+            elif matriz[2][0] == "X" and (matriz[1][2] == "X" or matriz[0][1] == "X" or matriz[0][2] == "X"):
+                
+            elif matriz[0][2] == "X" and (matriz[1][0] == "X" or matriz[2][0] == "X" or matriz[2][1] == "X"):
+                
+            elif matriz[2][2] == "X" and (matriz[0][0] == "X" or matriz[0][1] == "X" or matriz[1][0] == "X"):
+           
 #verifica se alguem ganhou
 def verificar_ganhador():
     
