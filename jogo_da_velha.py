@@ -143,12 +143,16 @@ def jogadas_ia():
                 
         else:
             if matriz[0][0] == "X" and (matriz[2][2] == "X" or matriz[2][1] == "X" or matriz[1][2] == "X"):
+                matriz[2][0] = "O" 
                 
             elif matriz[2][0] == "X" and (matriz[1][2] == "X" or matriz[0][1] == "X" or matriz[0][2] == "X"):
+                matriz[0][0] = "O" 
                 
             elif matriz[0][2] == "X" and (matriz[1][0] == "X" or matriz[2][0] == "X" or matriz[2][1] == "X"):
+                matriz[2][2] = "O" 
                 
             elif matriz[2][2] == "X" and (matriz[0][0] == "X" or matriz[0][1] == "X" or matriz[1][0] == "X"):
+                matriz[0][2] = "O" 
            
 #verifica se alguem ganhou
 def verificar_ganhador():
